@@ -1,0 +1,18 @@
+# Modelfile pour Learnia-Empathic-Tchat (Version épurée)
+
+FROM hf.co/Clem27-Assistants/Learnia-Empathic-Tchat-Q4_K_M-GGUF:Q4_K_M
+
+# Template simplifié sans rôle système explicite
+TEMPLATE """{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+"""
+
+# Paramètres de génération
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.1
+
+# Séquences d'arrêt critiques
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|im_start|>"
